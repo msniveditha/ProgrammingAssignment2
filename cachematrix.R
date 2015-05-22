@@ -4,9 +4,11 @@
 ## is always invertible.
 
 ## The following function takes a matrix as input and returns a list
-## which contains functiona to set the value of the matrix, get the
-## value of the matrix, get the value of inverse of the matrix and
-## set the value of inverse of the matrix.
+## which contains functions to set the value of the matrix (set function), 
+## get the value of the matrix (get function), get the value of inverse of 
+## the matrix (getinverse function) and set the value of inverse of the matrix (setinverse function).
+## The <<- operator has been used here to assign the value of inverse to the object inv
+## which exists in a different environment than the current environment.
 
 makeCacheMatrix <- function(x = matrix()) {
         inv<-NULL
@@ -32,9 +34,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## The following function takes the output of the previous function (makeCacheMatrix) 
-## as its input. If the value of inverse already exists in cache, then the cached value is fetched
-## and returned. If value of inverse does not exist in the cache, the inverse for the
+## The following function takes the output of the previous function (makeCacheMatrix) which is a special matrix
+## as its input. It first checks if the value of inverse already exists in cache. If it exists the cached value is fetched
+## and returned by the function. If the value of inverse does not exist in the cache, the inverse for the
 ## matrix which was given as input to the function makeCacheMatrix is calculated and cached.
 
 cacheSolve <- function(x, ...) {
