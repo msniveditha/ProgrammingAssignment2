@@ -35,9 +35,9 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## The following function takes the output of the previous function (makeCacheMatrix) which is a special matrix
-## as its input. It first checks if the value of inverse already exists in cache. If it exists the cached value is fetched
-## and returned by the function. If the value of inverse does not exist in the cache, the inverse for the
-## matrix which was given as input to the function makeCacheMatrix is calculated and cached.
+## as its input. It first checks if the value of inverse already exists in cache. If it exists the cached value is 
+##fetched and returned by the function. If the value of inverse does not exist in the cache, the inverse for the
+## matrix which was given as input to the function makeCacheMatrix is calculated using the solve function and cached.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -50,8 +50,11 @@ cacheSolve <- function(x, ...) {
         
         input <- x$get()
         
+        #compute the inverse of input using solve function
         m <- solve(input, ...)
         
+        #cache the matrix inverse
         x$setinverse(m)
+        
         m
 }
